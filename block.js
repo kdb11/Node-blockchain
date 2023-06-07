@@ -6,7 +6,7 @@ class Block {
     this.timestamp = timestamp;
     this.data = data;
     this.previousHash = previousHash;
-    this.hash = hash;
+    this.hash = this.calculateHash();
   }
 
   calculateHash() {
