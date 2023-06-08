@@ -5,3 +5,5 @@ const Block = require('./block');
 
 const app = express();
 app.use(bodyParser.json());
+
+const blockchain = new Blockchain();
