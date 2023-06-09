@@ -31,3 +31,8 @@ app.post('/blocks', (req, res) => {
 app.get('/', (req, res) => {
   res.send('Welcome to the Blockchain API!');
 });
+
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Blockchain API server is running on port ${port}`);
+});
