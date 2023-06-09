@@ -27,3 +27,7 @@ app.post('/blocks', (req, res) => {
     res.status(500).json({ error: 'Blockchain is invalid.' });
   }
 });
+
+app.get('/', (req, res) => {
+  res.send('Welcome to the Blockchain API!');
+});
