@@ -1,24 +1,20 @@
-/* const { json } = require("body-parser");
-const { response } = require("express");
-const res = require("express/lib/response");
-
-fetch('http://localhost:3000/blocks')
-.then(response=>{
-    return response.json();
-}).then(json=>{
-    console.log(json);
-})
- */
-const fetch = require('node-fetch');
+const axios = require('axios');
 const Block = require('./block');
-const Blockchain = require('./Blockchain');
+const Blockchain = require('./blockchain');
 
-async function getBlocks() {
-    let response = await fetch('http://localhost:3000/blocks');
-    let data = await response.json();
-    return data;
-}
+axios.get('http://localhost:3000/blocks')
+  .then(response => {
+    console.log('Blockchain:', response.data);
+  })
+  .catch(error => {
+    console.error('Error:', error.message);
+  });
 
-getBlocks().then(response=>{
-    console.log(response)
-});
+const newData = { data: 'New Data' };
+axios.post('http://localhost:3000/blocks', newData)
+  .then(response => {
+    console.log('New Block:', response.data);
+  })
+  .catch(error => {
+    console.error('Error:', error.message);
+  });
