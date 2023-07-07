@@ -1,6 +1,6 @@
 const axios = require('axios');
 const Block = require('./block');
-const Blockchain = require('./blockchain');
+const Blockchain = require('./Blockchain');
 
 axios.get('http://localhost:3000/blocks')
   .then(response => {
