@@ -1,10 +1,12 @@
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const Blockchain = require('./blockchain');
 const Block = require('./block');
 
 const app = express();
 app.use(bodyParser.json());
+app.use(cors());
 
 const blockchain = new Blockchain();
 
@@ -32,7 +34,7 @@ app.get('/', (req, res) => {
   res.send('Welcome to the Blockchain API!');
 });
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 app.listen(port, () => {
   console.log(`Blockchain API server is running on port ${port}`);
 });
